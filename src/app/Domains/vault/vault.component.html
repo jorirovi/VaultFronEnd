@@ -1,0 +1,182 @@
+<div class="contenedor">
+  <table>
+    <thead>
+      <tr>
+        <th>Titulo</th>
+        <th>URL</th>
+        <th>Usuario</th>
+        <th>opt 1</th>
+        <th>opt 2</th>
+        <th>opt 3</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (joya of joyasEntity; track $index) {
+        <tr>
+          <td>
+            {{joya.tituloV}}
+          </td>
+          <td>
+            {{joya.urlV}}
+          </td>
+          <td>
+            {{joya.usuarioV}}
+          </td>
+          <td>
+            <button (click)="OnVerJoya(joya.id)">ver</button>
+          </td>
+          <td>
+            <button (click)="onOpenJoyaUpdate(joya.id)">Modificar</button>
+          </td>
+          <td>
+            <button (click)="onDeleteJoya(joya.id)">Eliminar</button>
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table>
+  <div>
+    <button class="crearJoya" (click)="onMostrarFrmJoya()">Crear Joya</button>
+  </div>
+</div>
+@if (mostrar) {
+  <div class="modalVerJoya">
+    <div class="containerVer">
+      <div>
+        <h3>Secret para: {{joyaEntity.tituloV}}</h3>
+      </div>
+      <div>
+        <p>Usuario: <b>{{joyaEntity.usuarioV}}</b></p>
+      </div>
+      <div>
+        <p>URL: <b>{{joyaEntity.urlV}}</b></p>
+      </div>
+      <div>
+        <p>Password: <b>{{joyaEntity.passV}}</b></p>
+      </div>
+    </div>
+    <div>
+      <button class="cerrarV" (click)="onCerrar()">Cerrar</button>
+    </div>
+  </div>
+}
+@if (crearJoyaM) {
+  <div class="modalCrearJoya">
+    <div class="containerCrearJ">
+      <form [formGroup]="frmJoya" (ngSubmit)="onSubmitJoya($event)">
+        <div>
+          <label for="titulo">Titulo</label>
+          <input type="text" name="titulo" formControlName="tituloV">
+            @if (frmJoya.get('tituloV')?.hasError && frmJoya.get('tituloV')?.touched) {
+              @if (frmJoya.get('tituloV')?.hasError('required')){
+                <div>
+                  <p>Campo requerido</p>
+                </div>
+              }
+            }
+          </div>
+          <div>
+            <label for="url">URL</label>
+            <input type="text" name="url" formControlName="urlV">
+            @if (frmJoya.get('urlV')?.hasError && frmJoya.get('urlV')?.touched) {
+              @if(frmJoya.get('urlV')?.hasError('required')){
+                <div>
+                  <p>Campo requerido</p>
+                </div>
+              }
+            }
+          </div>
+          <div>
+            <label for="usuario">Usuario</label>
+            <input type="text" name="usuario" formControlName="usuarioV">
+            @if (frmJoya.get('usuarioV')?.hasError && frmJoya.get('usarioV')?.touched) {
+              @if (frmJoya.get('usuarioV')?.hasError('required')) {
+                <div>
+                  <p>Campo requerido</p>
+                </div>
+              }
+            }
+          </div>
+          <div>
+            <label for="password">Password</label>
+            <input type="text" name="password" formControlName="passV">
+            @if (frmJoya.get('passV')?.hasError && frmJoya.get('passV')?.touched) {
+              @if (frmJoya.get('passV')?.hasError('required')) {
+                <div>
+                  <p>Campo requerido</p>
+                </div>
+              }
+              @if (frmJoya.get('passV')?.hasError('minLength')) {
+                <div>
+                  <p>numero de caracteres incorrecto</p>
+                </div>
+              }
+            }
+          </div>
+          <div>
+            <button type="submit" [disabled]="frmJoya.invalid">Guardar</button>
+          </div>
+        </form>
+        <fieldset class="generadorPass">
+          <button class="passGen" (click)="generaContrasenaJ()">Generar Contraseña</button>
+          <input id="passGenerado" type="text" value="{{contrasenaJ}}">
+        </fieldset>
+    </div>
+  </div>
+}
+@if (modificarJoya) {
+  <div class="modalModificarJoya">
+    <div>
+      <form #miFormulario="ngForm" (ngSubmit)="onUpdateJoya(miFormulario)">
+        <div>
+          <label for="id">ID</label>
+          <input type="text" name="id" [(ngModel)]="joyaEntity.id" readonly>
+        </div>
+        <div>
+          <label for="tituloV">Joya</label>
+          <input type="text" name="tituloV" [(ngModel)]="joyaEntity.tituloV" required #nombreModel="ngModel">
+          @if (nombreModel.invalid && nombreModel.touched) {
+            @if (nombreModel.errors?.['required']) {
+              <div>
+                <p>El campo es requerido</p>
+              </div>
+            }
+          }
+        </div>
+        <div>
+          <label for="urlV">URL</label>
+          <input type="text" name="urlV" [(ngModel)]="joyaEntity.urlV">
+        </div>
+        <div>
+          <label for="usuarioV">Usuario</label>
+          <input type="text" name="usuarioV" [(ngModel)]="joyaEntity.usuarioV" >
+        </div>
+        <div>
+          <label for="passV">Password</label>
+          <input type="password" name="passV" [(ngModel)]="joyaEntity.passV" required #passModel="ngModel">
+          @if (passModel.invalid && passModel.touched) {
+            @if (passModel.errors?.['required']) {
+              <div>
+                <p>El campo es requerido</p>
+              </div>
+            }
+          }
+        </div>
+        <div>
+          <button type="submit" [disabled]="miFormulario.invalid">Guardar Cambios</button>
+        </div>
+      </form>
+      <div class="modJoyabtn">
+        <div>
+          <button (click)="generaContrasenaJ()">Generar Password</button>
+        </div>
+        <div>
+          <input type="text" value="{{contrasenaJ}}" readonly>
+        </div>
+        <div>
+          <button (click)="onCerrarJoyaUpdate()">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+}

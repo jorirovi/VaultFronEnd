@@ -1,0 +1,42 @@
+<div class="formulario">
+  <form [formGroup]="formLogin" (ngSubmit)="onLogin($event)">
+    <fieldset>
+      <legend>LogIn</legend>
+      <div class="cuerpo-formulario">
+        <label class="etiqueta" id="email">Email</label>
+        <input class="cajaTexto" type="email" id="email" formControlName="email">
+        @if (formLogin.get('email')?.hasError && formLogin.get('email')?.touched) {
+          @if (formLogin.get('email')?.hasError('required')) {
+            <div>
+              <p>Es un Campo Requerido</p>
+            </div>
+          }
+          @if (formLogin.get('email')?.hasError('email')) {
+            <div>
+              <p>Debe ser una cuanta de email valida</p>
+            </div>
+          }
+        }
+      </div>
+      <div class="cuerpo-formulario">
+        <label class="etiqueta" id="password">Password</label>
+        <input class="cajaTexto" type="password" id="password" formControlName="password">
+        @if (formLogin.get('password')?.errors && formLogin.get('password')?.touched) {
+          @if (formLogin.get('password')?.hasError('required')) {
+            <div>
+              <p>es un campo requerido</p>
+            </div>
+          }
+          @if (formLogin.get('password')?.hasError('minlength')) {
+            <div>
+              <p>El password debe tener minimo 8 caracteres</p>
+            </div>
+          }
+        }
+      </div>
+      <div class="contenedor-Boton">
+        <button class="botonLogIn" type="submit" [disabled]="formLogin.invalid">LogIn</button>
+      </div>
+    </fieldset>
+  </form>
+</div>

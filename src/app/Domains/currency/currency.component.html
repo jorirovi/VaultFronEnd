@@ -1,0 +1,19 @@
+<p>currency works!</p>
+
+<div>
+  <p>El Euro se cotiza a {{result.data}} COP</p>
+</div>
+<div>
+  <label for="cambio">Indique cantidad a cambiar en Euros</label>
+  <input type="number" name="cambio" [(ngModel)]="cambio">
+</div>
+<div>
+  <button (click)="calcular(result.data)">Calcular</button>
+</div>
+
+<div>
+  <input type="number" name="moneda" [(ngModel)]="total" >
+</div>
+
+
+

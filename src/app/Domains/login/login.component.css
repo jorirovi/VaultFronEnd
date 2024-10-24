@@ -1,0 +1,46 @@
+.formulario{
+  width: 80%;
+  background-color: rgba(0, 195, 255, 0.582);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 60px;
+  padding: 20px;
+  max-width: 500px;
+  border-radius: 10px;
+}
+
+.cuerpo-formulario{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.etiqueta{
+  flex: 1;
+  text-align: left;
+  margin-right: 20px;
+  margin-bottom: 10px;
+}
+
+.cajaTexto{
+  flex: 2;
+  text-align: center;
+  padding: 5px;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+}
+
+
+.botonLogIn{
+  width: 50%;
+  height: 30px;
+  margin: 0 auto;
+  display: block;
+  border-radius: 1em;
+}
+
+button:hover{
+  background-color: blue;
+  color: white;
+}

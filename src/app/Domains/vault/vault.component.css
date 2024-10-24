@@ -1,0 +1,134 @@
+.contenedor{
+  width: 80%;
+  background-color: rgba(0, 195, 255, 0.582);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 60px;
+  padding: 20px;
+  max-width: 1000px;
+  border-radius: 10px;
+}
+.modalVerJoya {
+  display: block; /* Asegúrate de que esté visible cuando lo necesites */
+  position: fixed;
+  z-index: 1; /* Mantiene el modal sobre el contenido */
+  left: 50%; /* Centra horizontalmente desde la izquierda */
+  top: 50%; /* Centra verticalmente desde la parte superior */
+  transform: translate(-50%, -50%); /* Ajusta la posición para que se centre */
+  width: 80%; /* Define el ancho del modal */
+  height: 80%; /* Define la altura del modal */
+  background-color: white; /* Fondo blanco */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Añade una sombra para mejor visibilidad */
+  padding: 20px; /* Un pequeño padding interno */
+  border-radius: 10px; /* Bordes redondeados opcionales */
+}
+.modalCrearJoya {
+  display: block; /* Asegúrate de que esté visible cuando lo necesites */
+  position: fixed;
+  z-index: 1; /* Mantiene el modal sobre el contenido */
+  left: 50%; /* Centra horizontalmente desde la izquierda */
+  top: 50%; /* Centra verticalmente desde la parte superior */
+  transform: translate(-50%, -50%); /* Ajusta la posición para que se centre */
+  width: 80%; /* Define el ancho del modal */
+  height: 80%; /* Define la altura del modal */
+  background-color: darkblue; /* Fondo blanco */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Añade una sombra para mejor visibilidad */
+  padding: 20px; /* Un pequeño padding interno */
+  border-radius: 10px; /* Bordes redondeados opcionales */
+}
+.modalModificarJoya {
+  display: block; /* Asegúrate de que esté visible cuando lo necesites */
+  position: fixed;
+  z-index: 1; /* Mantiene el modal sobre el contenido */
+  left: 50%; /* Centra horizontalmente desde la izquierda */
+  top: 50%; /* Centra verticalmente desde la parte superior */
+  transform: translate(-50%, -50%); /* Ajusta la posición para que se centre */
+  width: 80%; /* Define el ancho del modal */
+  height: 80%; /* Define la altura del modal */
+  background-color: darkblue; /* Fondo blanco */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Añade una sombra para mejor visibilidad */
+  padding: 20px; /* Un pequeño padding interno */
+  border-radius: 10px; /* Bordes redondeados opcionales */
+}
+table{
+  width: 100%;
+  margin-bottom: 10px;
+}
+th, td{
+  width: 30%;
+  text-align: center;
+  vertical-align: middle;
+  border: 1px dotted #000;
+  border-spacing: 0;
+  padding: 0.3em;
+}
+button{
+  background-color: hsl(240,56%,42%);
+  border-color: hsl(240,56%,42%);
+  color: rgb(255,255,255);
+  border-radius: 1em;
+}
+.crearJoya{
+  width: 19%;
+  height: 40px;
+}
+.containerVer{
+  margin: 50px auto;
+  max-width: 800px;
+  min-width: 500px;
+  width: 400vh;
+  padding-bottom: 2em;
+  border: 1px solid black;
+  border-radius: 1em;
+  padding-left: 10px;
+  background-color: rgba(0, 195, 255, 0.582);
+}
+.cerrarV{
+  margin: 0 auto;
+  display: block;
+  width: 80px;
+  height: 30px;
+}
+form{
+  margin: 0 auto;
+  max-width: 500px;
+  min-width: 300px;
+  width: 60vw;
+  padding-bottom: 0em;
+  padding-left: 4em;
+}
+label{
+  color: white;
+  display: block;
+}
+input{
+  margin: 10px 0;
+  width: 70%;
+  min-height: 1em;
+}
+.passGen{
+  display: block;
+  margin-top: 10px;
+}
+#passGenerado{
+  width: 200px;
+}
+.generadorPass{
+  max-width: 300px;
+  margin: 0 auto;
+  max-width: 500px;
+  min-width: 300px;
+  width: 70vw;
+  padding-left: 4.5em;
+  border: none
+}
+.modJoyabtn{
+  display: block;
+  margin: 0 auto;
+  max-width: 500px;
+  min-width: 300px;
+  width: 70vw;
+  padding-top: 10px;
+  padding-left: 4em;
+  border: none
+}
